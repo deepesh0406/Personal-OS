@@ -4,28 +4,9 @@ A web-first personal data platform with a FastAPI backend and Next.js frontend.
 
 ## Overview
 
-Personal Life OS is a monorepo project providing the foundation for a personal data dashboard. This is a **work in progress** - V0.1 represents the minimal viable platform structure.
+Personal Life OS is a monorepo project providing the foundation for a personal data dashboard.
 
-### What's Implemented (V0.1)
-
-- **FastAPI Backend**: Basic REST API with health checks and authentication utilities
-- **Next.js Frontend**: Minimal web application with routing and placeholder pages
-- **PostgreSQL**: Database setup with SQLAlchemy ORM
-- **Docker Compose**: Container orchestration for local development
-- **Authentication**: JWT token utilities and user model (foundation only)
-
-### What's Not Implemented
-
-- No working frontend pages (all show placeholders)
-- No integration with external services (GitHub, calendar, etc.)
-- No complete authentication flow
-- No PostgreSQL connection in Docker (uses SQLite for development)
-- No background job scheduling
-- No production-ready security
-
----
-
-## Architecture
+### Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -41,7 +22,17 @@ Personal Life OS is a monorepo project providing the foundation for a personal d
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
----
+### Current Status
+
+**V0.1 - Foundation** (Current)
+
+The V0.1 release provides the basic platform infrastructure:
+
+- Next.js frontend with routing
+- FastAPI backend with health endpoints
+- PostgreSQL database
+- Docker Compose orchestration
+- Basic authentication utilities
 
 ## Tech Stack
 
@@ -60,8 +51,6 @@ Personal Life OS is a monorepo project providing the foundation for a personal d
 - **React** (19.2.8) - UI library
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Styling
-
----
 
 ## Project Structure
 
@@ -89,15 +78,13 @@ personal-life-os/
 └── docker-compose.yml
 ```
 
----
-
 ## Setup
 
 ### Prerequisites
 
 - Docker and Docker Compose
 - Node.js 20+
-- Python 3.14+
+- Python 3.12+
 
 ### Environment Variables
 
@@ -111,7 +98,7 @@ cp apps/api/.env.example apps/api/.env
 
 ```bash
 cd personal-life-os
-docker-compose up -d
+docker compose up -d
 ```
 
 ### Local Development
@@ -130,8 +117,6 @@ npm install
 npm run dev
 ```
 
----
-
 ## API Endpoints
 
 | Method | Endpoint | Description |
@@ -142,13 +127,17 @@ npm run dev
 | POST | `/token` | Login (development only) |
 | GET | `/users/me` | Get current user |
 
----
+## Services
+
+| Service | Port | Description |
+|---------|------|-------------|
+| web | 3000 | Next.js frontend |
+| api | 8000 | FastAPI backend |
+| db | 5432 | PostgreSQL database |
 
 ## Database
 
-The application uses SQLAlchemy with PostgreSQL. The database schema is defined in `infrastructure/database/init.sql`.
-
----
+The application uses SQLAlchemy with PostgreSQL. Database schema is defined in `infrastructure/database/init.sql`.
 
 ## Future Roadmap
 
@@ -167,8 +156,4 @@ See `PERSONAL_SYSTEMS_ROADMAP.md` for the complete roadmap.
 
 ---
 
-## Development Status
-
-**V0.1 - Foundation** (Current)
-
-Status: ⚠️ Early development - API and frontend structure in place, but no functional features implemented yet.
+Built with Claude Code
